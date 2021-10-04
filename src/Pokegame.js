@@ -25,11 +25,22 @@ class Pokegame extends Component {
         let exp1 = hand1.reduce((exp, pokemon) => exp + pokemon.base_experience, 0);
         let exp2 = hand2.reduce((exp, pokemon) => exp + pokemon.base_experience, 0);
 
+        const onClick = () => {
+            window.location.reload();
+        }
+
         return (
-            <div>
-                <Pokedex Pokemon={hand1} exp={exp1} isWinner={exp1 < exp2} />
-                <Pokedex Pokemon={hand2} exp={exp2} isWinner={exp1 > exp2} />
-            </div>
+            <>
+                <div className="new-hand-pokegame">
+                    <button 
+                        onClick={onClick}>NEW HAND
+                    </button>
+                </div>
+                <div>
+                    <Pokedex Pokemon={hand1} exp={exp1} isWinner={exp1 < exp2} />
+                    <Pokedex Pokemon={hand2} exp={exp2} isWinner={exp1 > exp2} />
+                </div>
+            </>
         )
     }
 }
