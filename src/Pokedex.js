@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Pokecard from './Pokecard';
 import './Pokedex.css';
+
+import { Utils } from './util/utils';
+
 class Pokedex extends Component {
     render() {
         return (
@@ -9,7 +12,7 @@ class Pokedex extends Component {
                 <p className='Pokedex-exp'>Total Experience: {this.props.exp} </p>
                 <div className='Pokedex-cards'>
                     {this.props.Pokemon.map((p) => (
-                        <Pokecard id={p.id} name={p.name} type={p.type} exp={p.base_experience} />
+                        <Pokecard key={Utils.makeid(10)} id={p.id} name={p.name} type={p.type} exp={p.base_experience} />
                     ))}
                 </div>
             </div >
